@@ -3,193 +3,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Busra Atar — Data Analyst</title>
+<title>Busra Maya Atar — Mathematics → Data Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a2233;
-    --ink-soft: #4a5568;
-    --bg: #f4f5f7;
-    --card: #ffffff;
-    --accent: #2f6f4f;
-    --border: #e3e5ea;
+    --paper: #FAFAF7;
+    --ink: #15202B;
+    --slate: #5B6B73;
+    --rust: #A6402A;
+    --line: #D8D2C4;
+    --card: #FFFFFF;
   }
 
   * { box-sizing: border-box; }
 
+  html { scroll-behavior: smooth; }
+
   body {
     margin: 0;
-    background: var(--bg);
+    background: var(--paper);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
+
+  .serif {
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
 
   .wrap {
-    max-width: 760px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 64px 24px 80px;
+    padding: 0 28px;
   }
 
-  /* Header */
-  .header {
-    text-align: center;
-    margin-bottom: 56px;
+  /* ============ HERO ============ */
+  .hero {
+    padding: 88px 0 56px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 36px;
   }
 
   .avatar {
-    width: 128px;
-    height: 128px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid var(--card);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    flex-shrink: 0;
   }
 
-  h1 {
-    font-size: 2rem;
-    margin: 0 0 6px;
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin: 0 0 4px;
+  }
+
+  .hero-top h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
     letter-spacing: -0.01em;
   }
 
-  .role {
-    color: var(--ink-soft);
-    font-size: 1.05rem;
-    margin: 0;
+  .hero-top .role {
+    color: var(--slate);
+    font-size: 0.95rem;
+    margin: 2px 0 0;
   }
 
-  /* Section headings */
-  h2 {
-    font-size: 1.3rem;
-    margin: 0 0 16px;
+  .thesis {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin: 0 0 28px;
     letter-spacing: -0.005em;
   }
 
-  section { margin-bottom: 48px; }
+  .thesis em {
+    font-style: normal;
+    color: var(--rust);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .hero-meta a { text-decoration: none; border-bottom: 1px solid var(--line); }
+  .hero-meta a:hover { border-color: var(--rust); color: var(--rust); }
+
+  /* ============ EXHIBIT (the signature proof) ============ */
+  .exhibit {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .exhibit-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin: 0 0 18px;
+  }
+
+  .proof {
+    background: var(--ink);
+    color: #E8E6DF;
+    border-radius: 4px;
+    padding: 26px 28px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    overflow-x: auto;
+  }
+
+  .proof .kw { color: #E89A7E; }
+  .proof .fn { color: #9ECBC2; }
+  .proof .cm { color: #7C8B93; }
+
+  .exhibit-result {
+    margin-top: 20px;
+    padding-left: 18px;
+    border-left: 2px solid var(--rust);
+  }
+
+  .exhibit-result .qed {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--rust);
+    margin: 0 0 6px;
+  }
+
+  .exhibit-result p {
+    margin: 0;
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+
+  /* ============ SECTIONS ============ */
+  section.block {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin: 0 0 24px;
+  }
 
   /* About */
   .about p {
-    color: var(--ink-soft);
-    margin: 0 0 14px;
+    color: var(--ink);
     font-size: 1rem;
+    margin: 0 0 16px;
+    max-width: 60ch;
   }
 
-  .links {
+  .figures {
     display: flex;
-    gap: 16px;
-    margin-top: 18px;
+    gap: 32px;
+    margin-top: 28px;
     flex-wrap: wrap;
   }
 
-  .links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.15s ease;
-  }
-
-  .links a:hover { border-color: var(--accent); }
-
-  /* Stats row */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  .stat {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 12px;
-    text-align: center;
-  }
-
-  .stat .num {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--accent);
+  .figure .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--rust);
     display: block;
   }
 
-  .stat .label {
-    font-size: 0.78rem;
-    color: var(--ink-soft);
+  .figure .l {
+    font-size: 0.82rem;
+    color: var(--slate);
     margin-top: 2px;
   }
 
-  /* Tech stack */
-  .stack {
+  /* Stack */
+  .stack-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .pill {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 6px 14px;
+    gap: 10px 28px;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.85rem;
-    color: var(--ink-soft);
-  }
-
-  /* Project cards */
-  .project {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 24px;
-    margin-bottom: 14px;
-  }
-
-  .project h3 {
-    margin: 0 0 8px;
-    font-size: 1.05rem;
-  }
-
-  .project h3 a {
     color: var(--ink);
-    text-decoration: none;
   }
 
-  .project h3 a:hover { color: var(--accent); }
+  .stack-row span::before {
+    content: "·";
+    color: var(--rust);
+    margin-right: 10px;
+  }
 
-  .project p {
-    margin: 0 0 10px;
-    color: var(--ink-soft);
+  .stack-row span:first-child::before { content: ""; margin-right: 0; }
+
+  /* Projects — proof-entry style */
+  .entry {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .entry:first-child { border-top: none; padding-top: 0; }
+
+  .entry-grid {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 4px 24px;
+  }
+
+  .entry-grid dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--slate);
+    padding-top: 2px;
+  }
+
+  .entry-grid dd {
+    margin: 0 0 14px;
     font-size: 0.95rem;
   }
 
-  .tags {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
+  .entry-grid dd.title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
 
-  .tag {
-    font-size: 0.75rem;
-    color: var(--accent);
-    background: rgba(47, 111, 79, 0.08);
-    padding: 3px 10px;
-    border-radius: 999px;
+  .entry-grid dd.title a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .entry-grid dd.title a:hover { border-color: var(--rust); color: var(--rust); }
+
+  .entry-grid dd.tags {
+    margin-bottom: 0;
+  }
+
+  .entry-grid .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--rust);
+  }
+
+  .entry-grid .tag::after { content: " /"; color: var(--line); }
+  .entry-grid .tag:last-child::after { content: ""; }
+
+  @media (max-width: 540px) {
+    .entry-grid { grid-template-columns: 1fr; }
+    .entry-grid dt { padding-top: 12px; border-top: 1px dotted var(--line); }
+    .entry-grid dt:first-child { border-top: none; }
   }
 
   /* Footer */
   footer {
+    padding: 48px 0 80px;
     text-align: center;
-    color: var(--ink-soft);
-    font-size: 0.9rem;
-    border-top: 1px solid var(--border);
-    padding-top: 28px;
   }
 
+  footer p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+
+  footer .cta {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--paper);
+    background: var(--rust);
+    padding: 12px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  footer .cta:hover { background: var(--ink); }
+
   @media (max-width: 480px) {
-    .stats { grid-template-columns: 1fr; }
-    h1 { font-size: 1.6rem; }
+    .hero { padding: 56px 0 40px; }
+    .thesis { font-size: 1.3rem; }
+    .figures { gap: 24px; }
   }
 </style>
 </head>
@@ -197,77 +325,162 @@
 
 <div class="wrap">
 
-  <div class="header">
-    <img class="avatar" src="my-photo.jpg" alt="Busra Atar">
-    <h1>Hi, I'm Busra Atar</h1>
-    <p class="role">Data Analyst &amp; Quantitative Analysis</p>
-  </div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-top">
+      <img class="avatar" src="my-photo.jpg" alt="Busra Atar">
+      <div>
+        <h1>Busra Maya Atar</h1>
+        <p class="role">Mathematics MSc → Data Analysis</p>
+      </div>
+    </div>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I'm a data analyst with a Master's degree in Mathematics, peer-reviewed published research, and hands-on experience building dashboards, automating data pipelines, and turning raw data into decisions teams actually use.</p>
-    <p>I'm currently building toward quantitative and BI-focused roles, sharpening my SQL, Python, and statistics along the way.</p>
-    <div class="links">
-      <a href="#">LinkedIn</a>
-      <a href="mailto:atarbusra@outlook.com">Email</a>
+    <p class="eyebrow">Thesis</p>
+    <p class="thesis">I spent five years proving theorems about algebraic structure. Now I prove things about <em>customer behaviour, revenue, and risk</em> — same rigor, different variables.</p>
+
+    <div class="hero-meta">
+      <a href="mailto:atarbusra@outlook.com">atarbusra@outlook.com</a>
+      <a href="https://www.linkedin.com/in/busraatar/">LinkedIn</a>
       <a href="https://github.com/atarbusra">GitHub</a>
+      <span>Hamilton, ON</span>
     </div>
-    <div class="stats">
-      <div class="stat"><span class="num">15% → 32%</span><span class="label">Lead conversion lift</span></div>
-      <div class="stat"><span class="num">10+ hrs/wk</span><span class="label">Saved via automation</span></div>
-      <div class="stat"><span class="num">2</span><span class="label">MSc degrees, Mathematics</span></div>
+  </header>
+
+  <!-- EXHIBIT: a real worked query -->
+  <section class="exhibit">
+    <p class="exhibit-label">Exhibit — A Query, Worked</p>
+
+    <div class="proof">
+<span class="cm">-- Which customer regions are worth the marketing budget?</span>
+<span class="kw">SELECT</span> ROUND(<span class="fn">AVG</span>(rev_per_customer), 2) <span class="kw">AS</span> avg_lifetime_value,
+       a.district
+<span class="kw">FROM</span> (
+    <span class="kw">SELECT</span> customer_id, <span class="fn">SUM</span>(amount) <span class="kw">AS</span> rev_per_customer
+    <span class="kw">FROM</span> payment
+    <span class="kw">GROUP BY</span> customer_id
+) <span class="kw">AS</span> subquery
+<span class="kw">INNER JOIN</span> customer cu <span class="kw">ON</span> cu.customer_id = subquery.customer_id
+<span class="kw">INNER JOIN</span> address a <span class="kw">ON</span> a.address_id = cu.address_id
+<span class="kw">GROUP BY</span> a.district
+<span class="kw">ORDER BY</span> avg_lifetime_value <span class="kw">DESC</span>;
+    </div>
+
+    <div class="exhibit-result">
+      <p class="qed">∴ Result</p>
+      <p>Ranks every district by average customer lifetime value — turning a payments table into a ranked shortlist a marketing team can act on this week, not next quarter.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Tech Stack</h2>
-    <div class="stack">
-      <span class="pill">Python</span>
-      <span class="pill">SQL (PostgreSQL)</span>
-      <span class="pill">Excel</span>
-      <span class="pill">Salesforce</span>
-      <span class="pill">AWS (S3, Glue, Redshift)</span>
-      <span class="pill">Pandas</span>
+  <!-- ABOUT -->
+  <section class="block about">
+    <p class="section-label">About</p>
+    <p>MSc in Mathematics from McMaster University, where I co-authored a peer-reviewed paper on Hadamard products and binomial ideals. I moved from proving abstract results to producing analysis people use to make decisions — dashboards, automated pipelines, and reporting that replaced gut-feel with evidence.</p>
+    <p>Currently sharpening SQL, Python, and applied statistics, aimed at data, BI, and quantitative analyst roles.</p>
+
+    <div class="figures">
+      <div class="figure"><span class="n">15→32%</span><span class="l">lead conversion lift</span></div>
+      <div class="figure"><span class="n">10+ hrs</span><span class="l">saved weekly via automation</span></div>
+      <div class="figure"><span class="n">1</span><span class="l">peer-reviewed paper, JPAA</span></div>
     </div>
   </section>
 
-  <section>
-    <h2>Projects</h2>
+  <!-- STACK -->
+  <section class="block">
+    <p class="section-label">Tools</p>
+    <div class="stack-row">
+      <span>Python</span>
+      <span>SQL / PostgreSQL</span>
+      <span>Excel</span>
+      <span>Salesforce</span>
+      <span>AWS — S3, Glue, Redshift</span>
+      <span>Pandas</span>
+    </div>
+  </section>
 
-    <div class="project">
-      <h3><a href="https://github.com/atarbusra/Green-Cycles-SQL-Analysis">Green Cycles Movie Rental Analysis</a></h3>
-      <p>SQL analysis of customer value, movie performance, and revenue attribution using joins, subqueries, and CASE logic on the Pagila (PostgreSQL) database.</p>
-      <div class="tags"><span class="tag">SQL</span><span class="tag">PostgreSQL</span></div>
+  <!-- PROJECTS -->
+  <section class="block">
+    <p class="section-label">Work</p>
+
+    <div class="entry">
+      <dl class="entry-grid">
+        <dt>Given</dt>
+        <dd class="title"><a href="https://github.com/atarbusra/Green-Cycles-SQL-Analysis">Green Cycles Movie Rental</a></dd>
+        <dt>Problem</dt>
+        <dd>Which customers and regions actually drive revenue, and where is reporting silently broken by missing data.</dd>
+        <dt>Method</dt>
+        <dd>Joins, correlated and uncorrelated subqueries, and CASE logic against the Pagila (PostgreSQL) schema.</dd>
+        <dt>Result</dt>
+        <dd>Ranked customer lifetime value by district — a direct input for where to spend retention budget first.</dd>
+        <dt>Stack</dt>
+        <dd class="tags"><span class="tag">SQL</span><span class="tag">PostgreSQL</span></dd>
+      </dl>
     </div>
 
-    <div class="project">
-      <h3><a href="https://github.com/atarbusra/Bitcoin-Data-Analysis-w-Python">Bitcoin Price Analysis (2013–2017)</a></h3>
-      <p>Time-series analysis of Bitcoin price volatility — OHLC/candlestick visualization and identification of major price-spike events.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Plotly</span></div>
+    <div class="entry">
+      <dl class="entry-grid">
+        <dt>Given</dt>
+        <dd class="title"><a href="https://github.com/atarbusra/Bitcoin-Data-Analysis-w-Python">Bitcoin Volatility, 2013–17</a></dd>
+        <dt>Problem</dt>
+        <dd>What does four years of unfiltered, volatile price data actually tell you, once cleaned and visualized properly.</dd>
+        <dt>Method</dt>
+        <dd>Pandas for cleaning and date-handling; Plotly/Seaborn for OHLC and candlestick visualization.</dd>
+        <dt>Result</dt>
+        <dd>Identified and dated the major price-spike events, including the speculation-driven run-up of July 2017.</dd>
+        <dt>Stack</dt>
+        <dd class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Plotly</span></dd>
+      </dl>
     </div>
 
-    <div class="project">
-      <h3><a href="https://github.com/atarbusra/Excel-project">Budget vs. Actual Dashboard</a></h3>
-      <p>Excel dashboard tracking income, expenses, and variance % by category, built with INDEX/VLOOKUP, SUMIFS, and PivotTables.</p>
-      <div class="tags"><span class="tag">Excel</span><span class="tag">Dashboards</span></div>
+    <div class="entry">
+      <dl class="entry-grid">
+        <dt>Given</dt>
+        <dd class="title"><a href="https://github.com/atarbusra/Excel-project">Budget vs. Actual Dashboard</a></dd>
+        <dt>Problem</dt>
+        <dd>A monthly budget review that took an hour of manual reconciliation before any decision could be made.</dd>
+        <dt>Method</dt>
+        <dd>INDEX/VLOOKUP, SUMIFS, and PivotTables, rebuilt as a live variance dashboard.</dd>
+        <dt>Result</dt>
+        <dd>Variance by category, visible at a glance, every month, with zero manual recalculation.</dd>
+        <dt>Stack</dt>
+        <dd class="tags"><span class="tag">Excel</span></dd>
+      </dl>
     </div>
 
-    <div class="project">
-      <h3>Data Flow &amp; Security Pipeline (AWS)</h3>
-      <p>Secure ETL data flow (S3 → Glue → Redshift) with encryption at rest, column-level encryption for sensitive data, and access controls — reduced unauthorized access attempts by 25%.</p>
-      <div class="tags"><span class="tag">AWS</span><span class="tag">Security</span></div>
+    <div class="entry">
+      <dl class="entry-grid">
+        <dt>Given</dt>
+        <dd class="title">Secure Data Pipeline</dd>
+        <dt>Problem</dt>
+        <dd>Sensitive customer data moving through an ETL pipeline with no enforced encryption or access control.</dd>
+        <dt>Method</dt>
+        <dd>S3 → Glue → Redshift, with encryption at rest, key management, and column-level encryption for sensitive fields.</dd>
+        <dt>Result</dt>
+        <dd>25% reduction in unauthorized access attempts, with full alignment to compliance requirements.</dd>
+        <dt>Stack</dt>
+        <dd class="tags"><span class="tag">AWS</span><span class="tag">Security</span></dd>
+      </dl>
     </div>
 
-    <div class="project">
-      <h3>Salesforce Dashboard Automation</h3>
-      <p>Built 25+ custom reports and 10+ dashboards in Salesforce and Python, giving leadership real-time visibility into pipeline performance and lifting lead conversion from 15% to 32%.</p>
-      <div class="tags"><span class="tag">Salesforce</span><span class="tag">Automation</span></div>
+    <div class="entry">
+      <dl class="entry-grid">
+        <dt>Given</dt>
+        <dd class="title">Salesforce Reporting Automation</dd>
+        <dt>Problem</dt>
+        <dd>Leadership had no real-time visibility into which leads were converting, or why.</dd>
+        <dt>Method</dt>
+        <dd>25+ custom reports and 10+ dashboards in Salesforce and Python, with automated nurture sequences and Zapier integrations.</dd>
+        <dt>Result</dt>
+        <dd>Lead conversion rose from 15% to 32%; dashboards are still in active use after my departure.</dd>
+        <dt>Stack</dt>
+        <dd class="tags"><span class="tag">Salesforce</span><span class="tag">Python</span></dd>
+      </dl>
     </div>
 
   </section>
 
   <footer>
-    Open to Data Analyst, BI Analyst, and Quantitative Analyst roles in the Toronto / Hamilton area.
+    <p>Open to Data Analyst, BI, and Quantitative Analyst roles<br>in Toronto and Hamilton.</p>
+    <a class="cta" href="mailto:atarbusra@outlook.com">Get in touch →</a>
   </footer>
 
 </div>
